@@ -54,6 +54,7 @@
 html{background:#0A0A0B;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{margin:0;background:#0A0A0B;color:#F3F0EB;font-family:Manrope,system-ui,sans-serif;font-size:17px;line-height:1.6;overflow-x:clip;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 *,*::before,*::after{box-sizing:border-box}
+@media (min-width:1024px){.faq-aside{position:sticky;top:120px}}
 html[lang="sr-Latn"] [data-l="en"],html:not([lang="sr-Latn"]) [data-l="sr"]{display:none}
 a{color:#F3F0EB}
 a:hover{color:#E3262E}
@@ -304,7 +305,7 @@ summary::-webkit-details-marker{display:none}
 
   <section id="faq" data-screen-label="FAQ" style="scroll-margin-top:76px;max-width:1360px;margin:0 auto;padding:clamp(120px,15vw,208px) clamp(20px,5vw,64px) clamp(120px,15vw,208px)">
     <div style="display:flex;flex-wrap:wrap;gap:clamp(40px,6vw,112px);align-items:flex-start">
-      <div style="flex:1 1 320px;position:sticky;top:120px">
+      <div class="faq-aside" style="flex:1 1 320px">
         <p data-reveal="0" style="margin:0 0 28px;display:flex;align-items:center;gap:10px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.14em;color:#9C978F"><span style="width:6px;height:6px;background:#E3262E;display:block"></span>{{ t.faq.eyebrow }}</p>
         <h2 data-reveal="1" style="margin:0;max-width:10ch;font-family:'Clash Display','Archivo',sans-serif;font-stretch:120%;font-weight:600;font-size:clamp(40px,5.4vw,80px);line-height:.98;letter-spacing:-0.025em;color:#F3F0EB;text-wrap:balance">{{ t.faq.pre }}<em style="font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-weight:400;color:#E3262E;letter-spacing:-0.01em;font-size:1.08em;padding-right:.04em">{{ t.faq.em }}</em>{{ t.faq.post }}</h2>
       </div>

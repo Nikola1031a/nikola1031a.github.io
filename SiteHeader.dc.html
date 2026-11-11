@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<a href="#main" style="position:absolute;left:-9999px;top:14px;z-index:300;background:#E3262E;color:#F3F0EB;padding:10px 16px;border-radius:8px;font-family:Manrope,sans-serif;font-weight:600;font-size:15px;text-decoration:none" style-focus="left:16px">{{ t.nav.skip }}</a>
+<header id="top" style="position:relative">
+  <div aria-hidden="true" style="position:absolute;inset:0;background:rgba(10,10,11,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid #2A2A2E;opacity:{{ bgOpacity }};transition:opacity .35s ease;pointer-events:none"></div>
+  <div style="position:relative;max-width:1360px;margin:0 auto;padding:0 clamp(20px,5vw,64px);height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+    <a href="{{ homeHref }}" aria-label="{{ t.brand.homeAria }}" style="display:flex;flex-direction:column;gap:5px;text-decoration:none;color:#F3F0EB">
+      <span style="font-family:'Clash Display','Archivo',sans-serif;font-stretch:120%;font-weight:700;font-size:21px;letter-spacing:-0.02em;line-height:1;display:flex;align-items:flex-end;gap:3px;white-space:nowrap">Nikola Savić<span style="width:7px;height:7px;border-radius:50%;background:#E3262E;display:block;margin-bottom:2px;box-shadow:0 0 10px rgba(227,38,46,.8)"></span></span>
+      <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.34em;line-height:1;color:#9C978F">{{ t.brand.sub }}</span>
+    </a>
+    <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex;align-items:center;gap:28px">
+        <nav aria-label="{{ t.nav.primary }}">
+          <ul style="display:flex;align-items:center;gap:26px;list-style:none;margin:0;padding:0">
+            <sc-for list="{{ links }}" as="l" hint-placeholder-count="6">
+              <li><a href="{{ l.href }}" style="font-family:Manrope,sans-serif;font-size:15px;font-weight:500;color:#9C978F;text-decoration:none;padding:6px 0" style-hover="color:#F3F0EB">{{ l.label }}</a></li>
+            </sc-for>
+          </ul>
+        </nav>
+        <div role="group" aria-label="{{ t.nav.langAria }}" style="display:flex;border:1px solid #2A2A2E;border-radius:999px;padding:3px;gap:2px">
+          <button type="button" onClick="{{ setEn }}" aria-pressed="{{ enPressed }}" lang="en" style="appearance:none;border:0;cursor:pointer;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.1em;padding:7px 11px;border-radius:999px;background:{{ enBg }};color:{{ enColor }}">EN</button>
+          <button type="button" onClick="{{ setSr }}" aria-pressed="{{ srPressed }}" lang="sr-Latn" style="appearance:none;border:0;cursor:pointer;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.1em;padding:7px 11px;border-radius:999px;background:{{ srBg }};color:{{ srColor }}">SR</button>
+        </div>
+        <a href="{{ waDemo }}" target="_blank" rel="noopener" data-magnetic="" style="display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 20px;border-radius:999px;background:#E3262E;color:#F3F0EB;font-family:Manrope,sans-serif;font-weight:600;font-size:15px;text-decoration:none;white-space:nowrap;box-shadow:0 0 32px -10px rgba(227,38,46,.8)" style-hover="background:#F0353D">{{ t.nav.demo }}</a>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+      <button type="button" ref="{{ burgerRef }}" onClick="{{ openMenu }}" aria-label="{{ t.nav.menu }}" aria-expanded="{{ menuOpenStr }}" style="appearance:none;width:48px;height:48px;border-radius:50%;border:1px solid #2A2A2E;background:rgba(20,20,22,.7);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;cursor:pointer;padding:0">
+        <span style="display:block;width:18px;height:2px;background:#F3F0EB;border-radius:2px"></span>
+        <span style="display:block;width:18px;height:2px;background:#F3F0EB;border-radius:2px"></span>
+      </button>
+    </sc-if>
+  </div>
+</header>
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+  <div ref="{{ menuRef }}" role="dialog" aria-modal="true" aria-label="{{ t.footer.navTitle }}" style="position:fixed;inset:0;z-index:200;background:#0A0A0B;display:flex;flex-direction:column;padding:0 clamp(20px,5vw,64px) 28px;overflow-y:auto">
+    <div aria-hidden="true" style="position:absolute;right:-30%;top:-20%;width:120vw;height:120vw;border-radius:50%;background:radial-gradient(closest-side,rgba(227,38,46,.22),rgba(142,18,24,.08) 55%,transparent 75%);pointer-events:none"></div>
+    <div style="position:relative;height:76px;flex:none;display:flex;align-items:center;justify-content:space-between">
+      <a href="{{ homeHref }}" onClick="{{ closeMenu }}" aria-label="{{ t.brand.homeAria }}" style="display:flex;flex-direction:column;gap:5px;text-decoration:none;color:#F3F0EB">
+        <span style="font-family:'Clash Display','Archivo',sans-serif;font-stretch:120%;font-weight:700;font-size:21px;letter-spacing:-0.02em;line-height:1;display:flex;align-items:flex-end;gap:3px">Nikola Savić<span style="width:7px;height:7px;border-radius:50%;background:#E3262E;display:block;margin-bottom:2px"></span></span>
+        <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.34em;line-height:1;color:#9C978F">{{ t.brand.sub }}</span>
+      </a>
+      <button type="button" data-close="" onClick="{{ closeMenu }}" aria-label="{{ t.nav.close }}" style="appearance:none;width:48px;height:48px;border-radius:50%;border:1px solid #2A2A2E;background:#141416;color:#F3F0EB;font-size:26px;line-height:1;cursor:pointer;padding:0;display:flex;align-items:center;justify-content:center">×</button>
+    </div>
+    <nav aria-label="{{ t.nav.primary }}" style="position:relative">
+      <ul style="list-style:none;margin:28px 0 0;padding:0;display:flex;flex-direction:column">
+        <sc-for list="{{ links }}" as="l" hint-placeholder-count="6">
+          <li data-menu-item="" style="border-bottom:1px solid #2A2A2E">
+            <a href="{{ l.href }}" onClick="{{ closeMenu }}" style="display:flex;align-items:baseline;gap:16px;padding:14px 0;font-family:'Clash Display','Archivo',sans-serif;font-stretch:120%;font-weight:600;font-size:clamp(36px,10vw,60px);line-height:1;letter-spacing:-0.02em;color:#F3F0EB;text-decoration:none"><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.12em;color:#E3262E;font-weight:400">{{ l.num }}</span>{{ l.label }}</a>
+          </li>
+        </sc-for>
+      </ul>
+    </nav>
+    <div data-menu-item="" style="position:relative;margin-top:auto;padding-top:36px;display:flex;flex-direction:column;gap:12px">
+      <div role="group" aria-label="{{ t.nav.langAria }}" style="display:flex;align-self:flex-start;border:1px solid #2A2A2E;border-radius:999px;padding:3px;gap:2px;margin-bottom:8px">
+        <button type="button" onClick="{{ setEn }}" aria-pressed="{{ enPressed }}" lang="en" style="appearance:none;border:0;cursor:pointer;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;letter-spacing:.1em;padding:10px 16px;border-radius:999px;background:{{ enBg }};color:{{ enColor }}">EN</button>
+        <button type="button" onClick="{{ setSr }}" aria-pressed="{{ srPressed }}" lang="sr-Latn" style="appearance:none;border:0;cursor:pointer;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;letter-spacing:.1em;padding:10px 16px;border-radius:999px;background:{{ srBg }};color:{{ srColor }}">SR</button>
+      </div>
+      <a href="{{ waDemo }}" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:10px;height:56px;border-radius:999px;background:#E3262E;color:#F3F0EB;font-family:Manrope,sans-serif;font-weight:600;font-size:16px;text-decoration:none">{{ t.cta.wa }}</a>
+      <a href="{{ mail }}" style="display:flex;align-items:center;justify-content:center;gap:10px;height:56px;border-radius:999px;border:1px solid #2A2A2E;color:#F3F0EB;font-family:Manrope,sans-serif;font-weight:600;font-size:16px;text-decoration:none">{{ t.cta.email }}</a>
+    </div>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;page&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;home&quot;,&quot;case&quot;,&quot;404&quot;],&quot;default&quot;:&quot;home&quot;,&quot;tsType&quot;:&quot;'home'|'case'|'404'&quot;}}">
+class Component extends DCLogic {
+  state = { scrolled: false, menuOpen: false, isDesktop: window.matchMedia('(min-width: 1024px)').matches };
+  menuRef = React.createRef();
+  burgerRef = React.createRef();
+  componentDidMount() {
+    this.onScroll = () => { const s = window.scrollY > 24; if (s !== this.state.scrolled) this.setState({ scrolled: s }); };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    this.onScroll();
+    this.mq = window.matchMedia('(min-width: 1024px)');
+    this.onMq = (e) => this.setState((s) => ({ isDesktop: e.matches, menuOpen: e.matches ? false : s.menuOpen }));
+    this.mq.addEventListener('change', this.onMq);
+    this.onKey = (e) => { if (e.key === 'Escape' && this.state.menuOpen) this.closeMenu(); };
+    window.addEventListener('keydown', this.onKey);
+    const go = () => { this.un = window.SAVIC.connect(this); };
+    if (window.SAVIC) go(); else { this.onReady = go; window.addEventListener('savic-ready', go, { once: true }); }
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('keydown', this.onKey);
+    if (this.mq) this.mq.removeEventListener('change', this.onMq);
+    if (this.onReady) window.removeEventListener('savic-ready', this.onReady);
+    if (this.un) this.un();
+    document.body.style.overflow = '';
+  }
+  componentDidUpdate() {
+    const prev = { menuOpen: !!this.__wasOpen };
+    this.__wasOpen = this.state.menuOpen;
+    if (this.state.menuOpen && !prev.menuOpen) {
+      document.body.style.overflow = 'hidden';
+      const el = this.menuRef.current;
+      if (el) {
+        const c = el.querySelector('[data-close]');
+        if (c) c.focus();
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && el.animate) {
+          el.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 220, easing: 'ease-out' });
+          el.querySelectorAll('[data-menu-item]').forEach((it, i) => it.animate(
+            [{ opacity: 0, transform: 'translateY(28px)' }, { opacity: 1, transform: 'none' }],
+            { duration: 520, delay: 60 + i * 60, easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'backwards' }));
+        }
+      }
+    }
+    if (!this.state.menuOpen && prev.menuOpen) {
+      document.body.style.overflow = '';
+      if (this.burgerRef.current) this.burgerRef.current.focus({ preventScroll: true });
+    }
+  }
+  openMenu = () => this.setState({ menuOpen: true });
+  closeMenu = () => this.setState({ menuOpen: false });
+  renderVals() {
+    const S = window.SAVIC;
+    const base = { isDesktop: this.state.isDesktop, isMobile: !this.state.isDesktop, menuOpen: this.state.menuOpen, menuRef: this.menuRef, burgerRef: this.burgerRef, openMenu: this.openMenu, closeMenu: this.closeMenu, bgOpacity: this.state.scrolled || this.state.menuOpen ? 1 : 0 };
+    if (!S) return base;
+    const page = this.props.page || 'home';
+    const en = S.lang === 'en';
+    return Object.assign(base, {
+      t: S.use(this),
+      links: S.navLinks(page),
+      homeHref: page === 'home' ? '#top' : './',
+      waDemo: S.waDemo(),
+      mail: S.mail(),
+      menuOpenStr: String(this.state.menuOpen),
+      enPressed: String(en), srPressed: String(!en),
+      enBg: en ? '#F3F0EB' : 'transparent', enColor: en ? '#0A0A0B' : '#9C978F',
+      srBg: en ? 'transparent' : '#F3F0EB', srColor: en ? '#9C978F' : '#0A0A0B',
+      setEn: () => S.setLang('en'),
+      setSr: () => S.setLang('sr')
+    });
+  }
+}
+</script>
+</body>
+</html>

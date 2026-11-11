@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<dc-import name="SiteHeader" page="case" style="position:fixed;top:0;left:0;right:0;z-index:100" hint-size="100%,76px"></dc-import>
+<main id="main">
+  <section data-screen-label="Case hero" data-glow-area="" style="position:relative;overflow:hidden;padding:clamp(124px,17vh,184px) 0 0">
+    <div data-glow="" aria-hidden="true" style="position:absolute;left:70%;top:180px;width:900px;height:900px;margin:-450px 0 0 -450px;border-radius:50%;background:radial-gradient(closest-side,rgba(227,38,46,.24),rgba(142,18,24,.08) 50%,transparent 76%);pointer-events:none"></div>
+    <div style="position:relative;max-width:1360px;margin:0 auto;padding:0 clamp(20px,5vw,64px)">
+      <a href="./#work" data-intro="fade" data-intro-i="0" style="display:inline-flex;align-items:center;gap:10px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#9C978F;text-decoration:none;padding:8px 0" style-hover="color:#F3F0EB"><span aria-hidden="true" style="color:#E3262E">←</span>{{ t.cs.back }}</a>
+      <p data-intro="fade" data-intro-i="0" style="margin:clamp(28px,4vw,48px) 0 18px;display:flex;flex-wrap:wrap;gap:6px 16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;letter-spacing:.14em;color:#E3262E"><span>{{ t.cs.eyebrow }} · {{ num }} / 03</span></p>
+      <h1 style="margin:0;font-family:'Clash Display','Archivo',sans-serif;font-stretch:120%;font-weight:600;font-size:clamp(52px,10.5vw,176px);line-height:.92;letter-spacing:-0.035em;color:#F3F0EB;text-wrap:balance">
+        <span style="display:block;overflow:hidden;padding-bottom:.08em"><span data-intro="line" data-intro-i="0" style="display:block">{{ p.name }}</span></span>
+      </h1>
+      <div data-intro="fade" data-intro-i="1" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px 48px;margin-top:clamp(24px,3vw,40px)">
+        <p style="margin:0;display:flex;flex-wrap:wrap;gap:8px 20px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#F3F0EB"><span>{{ p.type }}</span><span style="color:#9C978F">{{ p.location }}</span><span style="color:#9C978F">{{ t.cs.year }}</span></p>
+        <a href="{{ live }}" target="_blank" rel="noopener" aria-label="{{ liveAria }}" data-magnetic="" style="display:inline-flex;align-items:center;gap:10px;height:56px;padding:0 26px;border-radius:999px;background:#E3262E;color:#F3F0EB;font-weight:600;font-size:16px;text-decoration:none;box-shadow:0 0 44px -10px rgba(227,38,46,.9)" style-hover="background:#F0353D">{{ t.cs.live }}<span aria-hidden="true">↗</span></a>
+      </div>
+      <p data-intro="fade" data-intro-i="2" style="margin:clamp(28px,3vw,40px) 0 0;max-width:720px;font-size:14.5px;line-height:1.6;color:#9C978F;text-wrap:pretty">{{ t.work.note }}</p>
+      <div data-intro="portrait" style="position:relative;margin-top:clamp(40px,5vw,72px);aspect-ratio:16/10;border-radius:16px;overflow:hidden;background:#141416;border:1px solid #2A2A2E">
+        <img src="uploads/{{ desktopId }}.jpg" alt="{{ desktopAlt }}" loading="lazy" decoding="async" width="1920" height="1200" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;display:block">
+      </div>
+    </div>
+  </section>
+
+  <section aria-label="{{ t.cs.overview.type }}" style="max-width:1360px;margin:0 auto;padding:clamp(56px,6vw,88px) clamp(20px,5vw,64px) 0">
+    <dl style="margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));border-top:1px solid #2A2A2E;border-bottom:1px solid #2A2A2E">
+      <sc-for list="{{ overview }}" as="o" hint-placeholder-count="5">
+        <div data-reveal="{{ $index }}" style="padding:24px 20px 26px 0;display:flex;flex-direction:column;gap:10px">
+          <dt style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#9C978F">{{ o.k }}</dt>
+          <dd style="margin:0;font-size:17px;line-height:1.4;color:#F3F0EB">{{ o.v }}</dd>
+        </div>
+      </sc-for>
+    </dl>
+  </section>
+
+  <section data-screen-label="Idea" style="max-width:1360px;margin:0 auto;padding:clamp(96px,12vw,168px) clamp(20px,5vw,64px) 0;display:flex;flex-wrap:wrap;gap:24px clamp(40px,6vw,112px)">
+    <p data-reveal="0" style="flex:0 1 260px;margin:0;display:flex;align-items:center;align-self:flex-start;gap:10px;padding-top:12px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.14em;color:#9C978F"><span style="width:6px;height:6px;background:#E3262E;display:block"></span>{{ t.cs.idea }}</p>
+    <p data-reveal="1" style="flex:1 1 560px;min-width:0;margin:0;font-weight:500;font-size:clamp(22px,2.5vw,36px);line-height:1.38;letter-spacing:-0.012em;color:#F3F0EB;text-wrap:pretty">{{ p.idea }}</p>
+  </section>
+
+  <section data-screen-label="What I built" style="max-width:1360px;margin:0 auto;padding:clamp(96px,12vw,168px) clamp(20px,5vw,64px) 0">
+    <p data-reveal="0" style="margin:0 0 28px;display:flex;align-items:center;gap:10px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.14em;color:#9C978F"><span style="width:6px;height:6px;background:#E3262E;display:block"></span>{{ t.cs.built }}</p>
+    <h2 data-reveal="1" style="margin:0;font-family:'Clash Display','Archivo',sans-serif;font-stretch:120%;font-weight:600;font-size:clamp(40px,6vw,88px);line-height:.98;letter-spacing:-0.025em;color:#F3F0EB">{{ t.cs.builtH }}</h2>
+    <ul style="list-style:none;margin:clamp(40px,5vw,72px) 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));column-gap:clamp(24px,4vw,64px)">
+      <sc-for list="{{ built }}" as="b" hint-placeholder-count="7">
+        <li data-reveal="{{ $index }}" style="display:flex;gap:16px;align-items:flex-start;padding:20px 0;border-top:1px solid #2A2A2E;font-size:17px;line-height:1.5;color:#F3F0EB">
+          <span aria-hidden="true" style="flex:none;width:28px;height:28px;border-radius:8px;border:1px solid #2A2A2E;background:#141416;display:flex;align-items:center;justify-content:center;margin-top:-2px">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#E3262E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="2.5 7.5 5.5 10.5 11.5 3.5"></polyline></svg>
+          </span>{{ b }}
+        </li>
+      </sc-for>
+    </ul>
+  </section>
+
+  <section data-screen-label="Highlights" style="max-width:1360px;margin:0 auto;padding:clamp(96px,12vw,168px) clamp(20px,5vw,64px) 0">
+    <p data-reveal="0" style="margin:0 0 clamp(40px,5vw,64px);display:flex;align-items:center;gap:10px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.14em;color:#9C978F"><span style="width:6px;height:6px;background:#E3262E;display:block"></span>{{ t.cs.highlights }}</p>
+    <div style="display:flex;flex-direction:column;gap:clamp(72px,9vw,136px)">
+      <sc-for list="{{ highlights }}" as="h" hint-placeholder-count="3">
+        <div style="display:flex;flex-wrap:wrap;flex-direction:{{ h.dir }};align-items:center;gap:32px clamp(40px,6vw,96px)">
+          <div data-reveal="0" style="flex:1 1 560px;min-width:0;position:relative;aspect-ratio:16/10;border-radius:16px;overflow:hidden;background:#141416;border:1px solid #2A2A2E">
+            <img src="uploads/{{ h.id }}.jpg" alt="{{ h.alt }}" loading="lazy" decoding="async" width="1920" height="1200" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;display:block">
+          </div>
+          <div data-reveal="1" style="flex:1 1 320px;min-width:0;display:flex;flex-direction:column;gap:16px">
+            <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;letter-spacing:.12em;color:#E3262E">{{ h.num }}</span>
+            <h3 style="margin:0;font-family:'Clash Display','Archivo',sans-serif;font-stretch:120%;font-weight:600;font-size:clamp(30px,3.4vw,48px);line-height:1.02;letter-spacing:-0.025em;color:#F3F0EB">{{ h.t }}</h3>
+            <p style="margin:0;max-width:44ch;font-size:17.5px;line-height:1.6;color:#9C978F;text-wrap:pretty">{{ h.d }}</p>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-screen-label="Mobile" style="max-width:1360px;margin:0 auto;padding:clamp(104px,13vw,184px) clamp(20px,5vw,64px) 0">
+    <p data-reveal="0" style="margin:0 0 28px;display:flex;align-items:center;gap:10px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.14em;color:#9C978F"><span style="width:6px;height:6px;background:#E3262E;display:block"></span>{{ t.cs.mobile }}</p>
+    <h2 data-reveal="1" style="margin:0;font-family:'Clash Display','Archivo',sans-serif;font-stretch:120%;font-weight:600;font-size:clamp(40px,6vw,88px);line-height:.98;letter-spacing:-0.025em;color:#F3F0EB">{{ t.cs.mobileH }}</h2>
+    <div style="position:relative;margin-top:clamp(48px,6vw,88px)">
+      <div aria-hidden="true" style="position:absolute;left:50%;top:50%;width:min(900px,100vw);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(227,38,46,.22),transparent 70%);pointer-events:none"></div>
+      <div style="position:relative;max-width:1040px;margin:0 auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(10px,3vw,48px);align-items:center">
+        <sc-for list="{{ phones }}" as="m" hint-placeholder-count="3">
+          <div data-reveal="{{ $index }}" style="position:relative;aspect-ratio:9/19.5;border-radius:clamp(14px,3vw,40px);overflow:hidden;background:#141416;border:1px solid #2A2A2E;box-shadow:0 0 0 clamp(3px,.6vw,8px) #0A0A0B,0 0 0 calc(clamp(3px,.6vw,8px) + 1px) #2A2A2E">
+            <img src="uploads/{{ m.id }}.jpg" alt="{{ m.alt }}" loading="lazy" decoding="async" width="720" height="1560" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;display:block">
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section aria-label="{{ t.cs.next }}" style="max-width:1360px;margin:0 auto;padding:clamp(120px,15vw,208px) clamp(20px,5vw,64px) clamp(96px,12vw,160px)">
+    <a href="{{ next.href }}" data-reveal="0" data-cursor="view" data-cursor-label="{{ t.work.view }}" style="display:flex;flex-direction:column;gap:20px;padding-top:32px;border-top:1px solid #2A2A2E;text-decoration:none;color:#F3F0EB" style-hover="color:#E3262E">
+      <span style="display:flex;justify-content:space-between;gap:16px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#9C978F"><span>{{ t.cs.next }}</span><span>{{ next.num }} / 03</span></span>
+      <span style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;font-family:'Clash Display','Archivo',sans-serif;font-stretch:120%;font-weight:600;font-size:clamp(44px,9vw,152px);line-height:.95;letter-spacing:-0.035em;text-wrap:balance"><span>{{ next.name }}</span><span aria-hidden="true" style="font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-weight:400;color:#E3262E;flex:none">→</span></span>
+      <span style="font-size:17px;line-height:1.55;color:#9C978F;max-width:56ch">{{ next.summary }}</span>
+    </a>
+  </section>
+</main>
+<dc-import name="SiteFooter" page="case" hint-size="100%,960px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;project&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;pastel&quot;,&quot;velura&quot;,&quot;residence&quot;],&quot;default&quot;:&quot;pastel&quot;,&quot;tsType&quot;:&quot;'pastel'|'velura'|'residence'&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    const go = () => {
+      window.SAVIC.setPage(this.key());
+      this.un = window.SAVIC.connect(this);
+    };
+    if (window.SAVIC) go(); else { this.onReady = go; window.addEventListener('savic-ready', go, { once: true }); }
+  }
+  componentWillUnmount() {
+    if (this.onReady) window.removeEventListener('savic-ready', this.onReady);
+    if (this.un) this.un();
+  }
+  key() {
+    const k = this.props.project;
+    return k === 'velura' || k === 'residence' ? k : 'pastel';
+  }
+  renderVals() {
+    const S = window.SAVIC;
+    if (!S) return {};
+    const t = S.use(this), key = this.key();
+    const idx = S.PROJECTS.findIndex((x) => x.key === key);
+    const meta = S.PROJECTS[idx], nm = S.PROJECTS[(idx + 1) % 3];
+    const p = t.projects[key], np = t.projects[nm.key];
+    const o = t.cs.overview;
+    const overview = [
+      { k: o.type, v: p.type },
+      { k: o.location, v: p.location },
+      { k: o.languages, v: p.languages }
+    ];
+    if (p.pages) overview.push({ k: o.pages, v: p.pages });
+    overview.push({ k: o.role, v: t.cs.roleVal });
+    return {
+      t, p, num: '0' + (idx + 1),
+      live: meta.live,
+      liveAria: p.name + ' — ' + t.cs.live + ' (' + t.work.liveAria + ')',
+      desktopId: key + '-desktop', desktopLabel: key + '-desktop.jpg · 16:10',
+      desktopAlt: t.cs.desktopAlt.replace('{p}', p.name),
+      overview,
+      built: p.built,
+      highlights: p.highlights.map((h, i) => ({
+        t: h.t, d: h.d, num: '0' + (i + 1), dir: i % 2 ? 'row-reverse' : 'row',
+        id: key + '-highlight-' + (i + 1), label: key + '-highlight-' + (i + 1) + '.jpg · 16:10',
+        alt: t.cs.highlightAlt.replace('{p}', p.name).replace('{h}', h.t)
+      })),
+      phones: [1, 2, 3].map((n) => ({
+        id: key + '-mobile-' + n, label: key + '-mobile-' + n + '.jpg',
+        alt: t.cs.mobileAlt.replace('{p}', p.name).replace('{n}', String(n))
+      })),
+      next: { href: nm.href, name: np.name, summary: np.summary, num: '0' + (((idx + 1) % 3) + 1) }
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found · Nikola Savić</title>
+<meta name="description" content="This page doesn't exist — but your new website could.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0A0A0B">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Page not found · Nikola Savić</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="This page doesn't exist — but your new website could.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0A0A0B">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@120,700&amp;family=Instrument+Serif:ital@1&amp;family=JetBrains+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600&amp;display=swap">
+<script src="./i18n.js"></script>
+<script src="./site-fx.js"></script>
+<style>
+html{background:#0A0A0B;-webkit-text-size-adjust:100%}
+body{margin:0;background:#0A0A0B;color:#F3F0EB;font-family:Manrope,system-ui,sans-serif;font-size:17px;line-height:1.6;overflow-x:clip;-webkit-font-smoothing:antialiased}
+*,*::before,*::after{box-sizing:border-box}
+a{color:#F3F0EB}
+a:hover{color:#E3262E}
+:focus-visible{outline:2px solid #E3262E;outline-offset:3px}
+</style>
+</helmet>
+<dc-import name="SiteHeader" page="404" style="position:fixed;top:0;left:0;right:0;z-index:100" hint-size="100%,76px"></dc-import>
+<main id="main" data-glow-area="" style="position:relative;overflow:hidden;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:140px 0 48px">
+  <div data-glow="" aria-hidden="true" style="position:absolute;left:50%;top:55%;width:1000px;height:1000px;margin:-500px 0 0 -500px;border-radius:50%;background:radial-gradient(closest-side,rgba(227,38,46,.3),rgba(142,18,24,.1) 50%,transparent 76%);pointer-events:none"></div>
+  <div style="position:relative;max-width:1360px;width:100%;margin:0 auto;padding:0 clamp(20px,5vw,64px);display:flex;flex-direction:column;align-items:flex-start;gap:clamp(24px,3vw,36px)">
+    <p data-intro="fade" data-intro-i="0" style="margin:0;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px;letter-spacing:.14em;color:#E3262E">{{ t.notfound.code }}</p>
+    <h1 style="margin:0;max-width:15ch;font-family:'Clash Display','Archivo',sans-serif;font-stretch:120%;font-weight:600;font-size:clamp(44px,7.4vw,120px);line-height:.96;letter-spacing:-0.03em;color:#F3F0EB;text-wrap:balance"><span data-intro="fade" data-intro-i="0" style="display:block">{{ t.notfound.pre }}<em style="font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-weight:400;color:#E3262E;letter-spacing:-0.01em;font-size:1.08em;padding-right:.04em">{{ t.notfound.em }}</em>{{ t.notfound.post }}</span></h1>
+    <div data-intro="fade" data-intro-i="2" style="display:flex;flex-wrap:wrap;gap:12px;margin-top:8px">
+      <a href="./" data-magnetic="" style="display:inline-flex;align-items:center;gap:10px;height:58px;padding:0 28px;border-radius:999px;background:#E3262E;color:#F3F0EB;font-weight:600;font-size:16px;text-decoration:none;box-shadow:0 0 44px -10px rgba(227,38,46,.9)" style-hover="background:#F0353D"><span aria-hidden="true">←</span>{{ t.notfound.btn }}</a>
+    </div>
+  </div>
+  <p style="position:relative;max-width:1360px;width:100%;margin:auto auto 0;padding:96px clamp(20px,5vw,64px) 0;font-size:14px;color:#9C978F">{{ t.footer.rights }}</p>
+</main>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    const go = () => { window.SAVIC.setPage('notfound'); this.un = window.SAVIC.connect(this); };
+    if (window.SAVIC) go(); else { this.onReady = go; window.addEventListener('savic-ready', go, { once: true }); }
+  }
+  componentWillUnmount() {
+    if (this.onReady) window.removeEventListener('savic-ready', this.onReady);
+    if (this.un) this.un();
+  }
+  renderVals() {
+    const S = window.SAVIC;
+    return S ? { t: S.use(this) } : {};
+  }
+}
+</script>
+</body>
+</html>

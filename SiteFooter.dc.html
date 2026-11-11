@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<section id="contact" aria-labelledby="cta-title" style="position:relative;overflow:hidden;border-top:1px solid #2A2A2E;scroll-margin-top:76px">
+  <div aria-hidden="true" style="position:absolute;left:50%;bottom:-55%;width:min(1500px,180vw);aspect-ratio:1;transform:translateX(-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(227,38,46,.42),rgba(142,18,24,.2) 45%,transparent 72%);pointer-events:none"></div>
+  <div style="position:relative;max-width:1360px;margin:0 auto;padding:clamp(104px,14vw,200px) clamp(20px,5vw,64px) clamp(88px,11vw,160px);display:flex;flex-direction:column;align-items:center;text-align:center;gap:clamp(24px,3vw,36px)">
+    <p data-reveal="0" style="margin:0;display:flex;align-items:center;gap:10px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.14em;color:#9C978F"><span style="width:6px;height:6px;background:#E3262E;display:block"></span>{{ t.cta.eyebrow }}</p>
+    <h2 id="cta-title" data-reveal="1" style="margin:0;max-width:13ch;font-family:'Clash Display','Archivo',sans-serif;font-stretch:120%;font-weight:600;font-size:clamp(48px,9vw,148px);line-height:.94;letter-spacing:-0.03em;color:#F3F0EB;text-wrap:balance">{{ t.cta.pre }}<em style="font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-weight:400;color:#E3262E;letter-spacing:-0.01em;font-size:1.08em;padding-right:.04em">{{ t.cta.em }}</em>{{ t.cta.post }}</h2>
+    <p data-reveal="2" style="margin:0;max-width:560px;font-size:clamp(17px,1.4vw,19px);line-height:1.6;color:#9C978F;text-wrap:pretty">{{ t.cta.text }}</p>
+    <div data-reveal="3" style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:8px">
+      <a href="{{ waGeneral }}" target="_blank" rel="noopener" data-magnetic="" style="display:inline-flex;align-items:center;gap:10px;height:60px;padding:0 30px;border-radius:999px;background:#E3262E;color:#F3F0EB;font-family:Manrope,sans-serif;font-weight:600;font-size:17px;text-decoration:none;box-shadow:0 0 48px -10px rgba(227,38,46,.85)" style-hover="background:#F0353D">{{ t.cta.wa }}<span aria-hidden="true">→</span></a>
+      <a href="{{ mail }}" data-magnetic="" style="display:inline-flex;align-items:center;gap:10px;height:60px;padding:0 30px;border-radius:999px;border:1px solid #3A3A3F;background:rgba(10,10,11,.4);color:#F3F0EB;font-family:Manrope,sans-serif;font-weight:600;font-size:17px;text-decoration:none" style-hover="border-color:#F3F0EB">{{ t.cta.email }}</a>
+    </div>
+    <div data-reveal="4" style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px 40px;margin-top:12px">
+      <p style="margin:0;display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;justify-content:center"><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.12em;color:#9C978F;text-transform:uppercase">{{ t.cta.waLabel }}</span><span style="font-size:17px;color:#F3F0EB;user-select:all">+381 62 926 9646</span></p>
+      <p style="margin:0;display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;justify-content:center"><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.12em;color:#9C978F;text-transform:uppercase">{{ t.cta.emailLabel }}</span><span style="font-size:17px;color:#F3F0EB;user-select:all;word-break:break-all">nikolasavcc4@gmail.com</span></p>
+    </div>
+  </div>
+</section>
+<footer style="border-top:1px solid #2A2A2E;background:#0A0A0B">
+  <div style="max-width:1360px;margin:0 auto;padding:clamp(56px,6vw,88px) clamp(20px,5vw,64px) 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:48px">
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <a href="{{ homeHref }}" aria-label="{{ t.brand.homeAria }}" style="display:flex;flex-direction:column;gap:6px;text-decoration:none;color:#F3F0EB;align-self:flex-start">
+        <span style="font-family:'Clash Display','Archivo',sans-serif;font-stretch:120%;font-weight:700;font-size:28px;letter-spacing:-0.02em;line-height:1;display:flex;align-items:flex-end;gap:3px">Nikola Savić<span style="width:8px;height:8px;border-radius:50%;background:#E3262E;display:block;margin-bottom:3px"></span></span>
+        <span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.34em;line-height:1;color:#9C978F">{{ t.brand.sub }}</span>
+      </a>
+      <p style="margin:0;font-size:16px;color:#9C978F;max-width:30ch">{{ t.footer.tagline }}</p>
+      <p style="margin:0;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#9C978F">{{ t.footer.based }}</p>
+    </div>
+    <nav aria-label="{{ t.footer.navTitle }}" style="display:flex;flex-direction:column;gap:16px">
+      <p style="margin:0;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#9C978F">{{ t.footer.navTitle }}</p>
+      <ul style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,max-content);gap:10px 40px">
+        <sc-for list="{{ links }}" as="l" hint-placeholder-count="6">
+          <li><a href="{{ l.href }}" style="color:#F3F0EB;text-decoration:none;font-size:16px" style-hover="color:#E3262E">{{ l.label }}</a></li>
+        </sc-for>
+      </ul>
+    </nav>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <p style="margin:0;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#9C978F">{{ t.footer.contactTitle }}</p>
+      <a href="{{ waGeneral }}" target="_blank" rel="noopener" style="color:#F3F0EB;text-decoration:none;font-size:16px;display:flex;gap:10px;align-items:baseline" style-hover="color:#E3262E"><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.1em;color:#9C978F">WA</span>+381 62 926 9646</a>
+      <a href="{{ mail }}" style="color:#F3F0EB;text-decoration:none;font-size:16px;display:flex;gap:10px;align-items:baseline;word-break:break-all" style-hover="color:#E3262E"><span style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.1em;color:#9C978F">@</span>nikolasavcc4@gmail.com</a>
+    </div>
+  </div>
+  <div style="max-width:1360px;margin:0 auto;padding:24px clamp(20px,5vw,64px) 32px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center">
+    <p style="margin:0;font-size:14px;color:#9C978F;border-top:0">{{ t.footer.rights }}</p>
+    <a href="#top" style="display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 18px;border-radius:999px;border:1px solid #2A2A2E;color:#F3F0EB;text-decoration:none;font-size:14px;font-weight:500" style-hover="border-color:#E3262E">{{ t.footer.top }}<span aria-hidden="true" style="color:#E3262E">↑</span></a>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;page&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;home&quot;,&quot;case&quot;],&quot;default&quot;:&quot;home&quot;,&quot;tsType&quot;:&quot;'home'|'case'&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    const go = () => { this.un = window.SAVIC.connect(this); };
+    if (window.SAVIC) go(); else { this.onReady = go; window.addEventListener('savic-ready', go, { once: true }); }
+  }
+  componentWillUnmount() {
+    if (this.onReady) window.removeEventListener('savic-ready', this.onReady);
+    if (this.un) this.un();
+  }
+  renderVals() {
+    const S = window.SAVIC;
+    if (!S) return {};
+    const page = this.props.page || 'home';
+    return {
+      t: S.use(this),
+      links: S.navLinks(page),
+      homeHref: page === 'home' ? '#top' : './',
+      waGeneral: S.waGeneral(),
+      mail: S.mail()
+    };
+  }
+}
+</script>
+</body>
+</html>
